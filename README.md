@@ -57,7 +57,7 @@ the tempo or the instruments there and rerun it. The file is exactly the loop le
 
 | Setting | Where | Effect |
 | --- | --- | --- |
-| `MUSIC_VOLUME` | `src/config.ts` | lullaby volume, 0 for silence |
+| `MUSIC_VOLUME` | `src/config.ts` | lullaby volume, 1 = as generated (about -14 dBFS RMS), 0 for silence |
 | `VISIT_GAP` | `src/config.ts` | seconds between animals (12 keeps at most two on screen) |
 | `WALK_SPEED` | `src/config.ts` | walking speed in px/s (160; the deck used 300) |
 | `PAUSE_SECONDS` | `src/config.ts` | how long each animal stays put |

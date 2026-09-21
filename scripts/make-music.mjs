@@ -94,11 +94,21 @@ const fadeStart = (LOOP_SECONDS - 4) * RATE;
 for (let i = fadeStart; i < buf.length; i++) buf[i] *= 1 - (i - fadeStart) / (buf.length - fadeStart);
 for (let i = 0; i < 0.05 * RATE; i++) buf[i] *= i / (0.05 * RATE);
 
-// Normalize to a quiet -14 dBFS peak.
+// Normalize to a -2 dBFS peak; MUSIC_VOLUME in src/config.ts sets the final level.
 let peak = 0;
 for (const v of buf) peak = Math.max(peak, Math.abs(v));
-const target = Math.pow(10, -14 / 20);
+const target = Math.pow(10, -2 / 20);
 const g = peak > 0 ? target / peak : 1;
+// Report levels: overall RMS and the RMS of the loudest second, after gain.
+let sum = 0, loudest = 0;
+for (let i = 0; i < buf.length; i += RATE) {
+  let w = 0;
+  for (let j = i; j < Math.min(buf.length, i + RATE); j++) w += (buf[j] * g) ** 2;
+  sum += w;
+  loudest = Math.max(loudest, w / RATE);
+}
+const dB = (x) => (20 * Math.log10(Math.sqrt(x))).toFixed(1);
+console.log(`peak ${(20 * Math.log10(peak * g)).toFixed(1)} dBFS, rms ${dB(sum / buf.length)} dBFS, loudest second ${dB(loudest)} dBFS`);
 
 // 16-bit mono WAV.
 const pcm = Buffer.alloc(44 + buf.length * 2);

@@ -11,7 +11,7 @@ export const LOOP_SECONDS = 180;
 export const LOOP_FRAMES = LOOP_SECONDS * FPS;
 
 // Background lullaby volume, 0 to 1. Set to 0 for silence.
-export const MUSIC_VOLUME = 0.6;
+export const MUSIC_VOLUME = 1;
 
 // How many loops make the long version (20 x 3 min = 1 hour).
 export const HOUR_LOOPS = 20;
