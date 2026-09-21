@@ -10,7 +10,9 @@ The video is a seamless 3-minute loop. Repeating it twenty times gives an hour w
 visible seam, because every ambient motion has a period that divides the loop length
 and the animal schedule wraps around it.
 
-There is no sound, no text and nothing fast. Colours, speeds and counts live in
+A quiet generated lullaby plays underneath: a music-box melody in C major pentatonic
+at 60 beats per minute over soft bass notes, ending on a chord that rings out into
+a short silence right at the loop seam. There is no text and nothing fast. Colours, speeds and counts live in
 `src/config.ts` if you want it calmer or busier.
 
 ![The chicken flaps while the cat walks in](docs/frame-chicken-flap.png)
@@ -45,10 +47,17 @@ a laptop expect roughly 10 to 20 minutes.
 - `src/animals/data.ts` and `src/ambient-data.ts`: the artwork, extracted from the
   "Farm friends" slide deck by the two scripts in `scripts/`.
 
+## Music
+
+`public/music.mp3` is generated, not recorded. `npm run music` rebuilds it from
+`scripts/make-music.mjs`, where the tune is written as bars of notes; change the notes,
+the tempo or the instruments there and rerun it. The file is exactly the loop length.
+
 ## Tuning
 
 | Setting | Where | Effect |
 | --- | --- | --- |
+| `MUSIC_VOLUME` | `src/config.ts` | lullaby volume, 0 for silence |
 | `VISIT_GAP` | `src/config.ts` | seconds between animals (12 keeps at most two on screen) |
 | `WALK_SPEED` | `src/config.ts` | walking speed in px/s (160; the deck used 300) |
 | `PAUSE_SECONDS` | `src/config.ts` | how long each animal stays put |

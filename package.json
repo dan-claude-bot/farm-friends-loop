@@ -9,7 +9,8 @@
     "render:loop": "remotion render FarmLoop out/farm-loop.mp4",
     "render:preview": "remotion render Preview out/preview.mp4",
     "render:hour": "remotion render FarmHour out/farm-hour.mp4",
-    "hour": "bash scripts/make-hour.sh"
+    "hour": "bash scripts/make-hour.sh",
+    "music": "node scripts/make-music.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.526",

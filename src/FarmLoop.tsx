@@ -1,8 +1,8 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Img, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Ambient} from './Ambient';
 import {AnimalDefs, AnimalSprite} from './animals/AnimalSprite';
-import {ANIMALS, HEIGHT, LOOP_SECONDS, WIDTH} from './config';
+import {ANIMALS, HEIGHT, LOOP_SECONDS, MUSIC_VOLUME, WIDTH} from './config';
 import {poseAt} from './motion';
 import {SCHEDULE} from './schedule';
 
@@ -22,6 +22,7 @@ export const FarmLoop: React.FC = () => {
 
   return (
     <AbsoluteFill style={{background: '#fdf6e6'}}>
+      {MUSIC_VOLUME > 0 ? <Audio src={staticFile('music.mp3')} volume={MUSIC_VOLUME} /> : null}
       <Img src={staticFile('farm-backdrop.svg')} style={{position: 'absolute', left: 0, top: 0, width: WIDTH, height: HEIGHT}} />
       <svg width={WIDTH} height={HEIGHT} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} style={{position: 'absolute', left: 0, top: 0}}>
         <style>{`.an * { stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }`}</style>
