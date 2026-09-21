@@ -53,6 +53,9 @@ a laptop expect roughly 10 to 20 minutes.
 `scripts/make-music.mjs`, where the tune is written as bars of notes; change the notes,
 the tempo or the instruments there and rerun it. The file is exactly the loop length.
 
+After any music change, `npm run remux` swaps the new audio into an already rendered
+`out/farm-loop.mp4` in seconds, without re-rendering frames. Then `npm run hour` again.
+
 ## Tuning
 
 | Setting | Where | Effect |
