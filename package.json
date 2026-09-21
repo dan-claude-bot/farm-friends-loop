@@ -1,0 +1,25 @@
+{
+  "name": "farm-friends-loop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Low-stimulation looping farm video for toddlers, built with Remotion",
+  "scripts": {
+    "start": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "render:loop": "remotion render FarmLoop out/farm-loop.mp4",
+    "render:preview": "remotion render Preview out/preview.mp4",
+    "render:hour": "remotion render FarmHour out/farm-hour.mp4",
+    "hour": "bash scripts/make-hour.sh"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.526",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.526"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "typescript": "5.8.3"
+  }
+}
